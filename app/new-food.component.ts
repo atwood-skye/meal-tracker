@@ -18,7 +18,14 @@ import { Food } from './food.model';
       <label>Notes:</label>
       <input #newNotes>
     </div>
-    <button (click)="submitForm(newItem.value, newCalories.value, newNotes.value);">Add</button>
+    <div>
+      <label>Category:</label>
+      <select #newCategory>
+        <option [value]="1"> Breakfast </option>
+        <option [value]="1"> Lunch </option>
+        <option [value]="1"> Dinner </option>
+        <option [value]="1"> Snack/Dessert </option>
+    <button (click)="submitForm(newItem.value, newCalories.value, newNotes.value, newCategory.value);">Add</button>
   `
 })
 
@@ -30,8 +37,8 @@ import { Food } from './food.model';
 export class NewFoodComponent {
   @Output() newFoodSender = new EventEmitter();
 
-  submitForm(item: string, calories: number, notes: string) {
-    var newFoodToAdd: Food = new Food(item, calories, notes);
+  submitForm(item: string, calories: number, notes: string, category: number) {
+    var newFoodToAdd: Food = new Food(item, calories, notes, category);
     this.newFoodSender.emit(newFoodToAdd);
   }
 }
