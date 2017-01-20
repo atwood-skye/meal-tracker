@@ -15,11 +15,6 @@ import { Food } from './food.model';
       <input [(ngModel)]="childSelectedFood.calories">
       <label>Notes:</label>
       <input [(ngModel)]="childSelectedFood.notes">
-      <label>Pick a category:</label><br>
-      <input type="radio" [(ngModel)]="childSelectedTask.category" [value]="1">Breakfast<br>
-      <input type="radio" [(ngModel)]="childSelectedTask.category" [value]="2">Lunch<br>
-      <input type="radio" [(ngModel)]="childSelectedTask.category" [value]="3">Dinner
-      <input type="radio" [(ngModel)]="childSelectedTask.category" [value]="3">Snack/Dessert
       <button (click)="editButtonClicked()">Edit</button>
     </div>
   </div>

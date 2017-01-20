@@ -18,13 +18,21 @@ export class AppComponent {
   selectedFood = null;
 
   masterFoodList: Food[] = [
-    new Food('Banana with peanut butter', 180, 'one of my favorite snacks!', 4),
-    new Food('Green curry with tofu', 500, 'forgot to pack lunch today.', 2),
-    new Food('Justins peanut butter cups', 200, 'cant resist these', 4)
+    new Food('Banana with peanut butter', 180, 'one of my favorite snacks!'),
+    new Food('Green curry with tofu', 500, 'forgot to pack lunch today.'),
+    new Food('Justins peanut butter cups', 200, 'cant resist these')
   ];
 
-  editFood(clickedFood) {
-    this.selectedFood = clickedFood;
+  isItHealthyOrNot(caloriesTracked: Food) {
+    if(caloriesTracked.calories < 500) {
+      return caloriesTracked.lowCal = true;
+    } else {
+      return caloriesTracked.lowCal = true;
+    }
+  }
+
+  editFood(food) {
+    this.selectedFood = food;
   }
 
   finishedEditing() {
