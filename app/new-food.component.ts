@@ -19,7 +19,6 @@ import { Food } from './food.model';
       <input #newNotes>
     </div>
     <button (click)="submitForm(newItem.value, newCalories.value, newNotes.value);">Add</button>
-  </div>
   `
 })
 
