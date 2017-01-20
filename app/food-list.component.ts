@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Food } from './food.model';
 
 @Component({
@@ -12,4 +12,5 @@ import { Food } from './food.model';
 
 export class FoodListComponent {
   @Input() childFoodList: Food[];
+  @Output() clickSender = new EventEmitter();
 }
