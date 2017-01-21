@@ -12,13 +12,13 @@ import { Food } from './food.model';
     </div>
     <div>
       <label>Calories:</label>
-      <input #newCalories>
+      <input type="number" #newCalories>
     </div>
     <div>
       <label>Notes:</label>
       <input #newNotes>
     </div>
-    <button (click)="submitForm(newItem.value, newCalories.value, newNotes.value)">Add</button>
+    <button (click)="submitForm(newItem.value, newCalories.value, newNotes.value); newItem.value=''; newCalories.value=''; newNotes.value='';">Add</button>
   `
 })
 
@@ -28,7 +28,7 @@ export class NewFoodComponent {
   @Output() newFoodSender = new EventEmitter();
 
   submitForm(item: string, calories: number, notes: string) {
-    var newFoodToAdd: Food = new Food(item, calories, notes);
-    this.newFoodSender.emit(newFoodToAdd);
+    var newFood: Food = new Food(item, calories, notes);
+    this.newFoodSender.emit(newFood);
   }
 }

@@ -6,40 +6,34 @@ import { Food } from './food.model';
   template: `
   <div class='container'>
     <h1>Meal Tracker</h1>
-    <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
+    <food-list [childFoodList]="masterFoodList" (editSender)="editFood($event)"></food-list>
     <hr>
-    <edit-food [childSelectedFood]="selectedFood" (editButtonClickedSender)="finishedEditing()"></edit-food>
     <new-food (newFoodSender)="addFood($event)"></new-food>
+    <edit-food [childSelectedFood]="selectedFood" (doneEditingSender)="doneEditing()"></edit-food>
   </div>
   `
 })
 
 export class AppComponent {
-  selectedFood = null;
+
 
   masterFoodList: Food[] = [
     new Food('Banana with peanut butter', 180, 'one of my favorite snacks!'),
     new Food('Green curry with tofu', 500, 'forgot to pack lunch today.'),
-    new Food('Justins peanut butter cups', 200, 'cant resist these')
+    new Food('Justins peanut butter cups', 200, 'cant resist these'),
   ];
 
-  isItHealthyOrNot(caloriesTracked: Food) {
-    if(caloriesTracked.calories < 500) {
-      return caloriesTracked.lowCal = true;
-    } else {
-      return caloriesTracked.lowCal = true;
-    }
+  selectedFood = null;
+
+  editFood(currentFood) {
+    this.selectedFood = currentFood;
   }
 
-  editFood(food) {
-    this.selectedFood = food;
-  }
-
-  finishedEditing() {
+  doneEditing() {
     this.selectedFood = null;
   }
 
-  addFood(newFoodFromChild: Food) {
-    this.masterFoodList.push(newFoodFromChild);
+  addFood(newFood: Food) {
+    this.masterFoodList.push(newFood);
   }
 }

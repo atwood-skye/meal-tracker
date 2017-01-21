@@ -4,28 +4,24 @@ import { Food } from './food.model';
 @Component({
   selector: 'edit-food',
   template: `
-  <div>
     <div *ngIf="childSelectedFood">
-    <h3>{{childSelectedFood.item}}</h3>
-      <hr>
       <h3>Edit Entry</h3>
       <label>What did you eat?</label>
-      <input [(ngModel)]="childSelectedFood.item">
+      <input [(ngModel)]="childSelectedFood.item"><br>
       <label>Calories:</label>
-      <input [(ngModel)]="childSelectedFood.calories">
+      <input [(ngModel)]="childSelectedFood.calories" type="number"><br>
       <label>Notes:</label>
-      <input [(ngModel)]="childSelectedFood.notes">
-      <button (click)="editButtonClicked()">Edit</button>
-    </div>
+      <input [(ngModel)]="childSelectedFood.notes"><br>
+      <button (click)="doneEditingClicked()">Edit</button>
   </div>
   `
 })
 
 export class EditFoodComponent {
   @Input() childSelectedFood: Food;
-  @Output() editButtonClickedSender = new EventEmitter();
+  @Output() doneEditingSender = new EventEmitter();
 
-  editButtonClicked() {
-    this.editButtonClickedSender.emit();
+  doneEditingClicked() {
+    this.doneEditingSender.emit();
   }
 }

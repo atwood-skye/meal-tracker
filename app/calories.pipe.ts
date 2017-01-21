@@ -2,29 +2,33 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {Food} from './food.model';
 
 @Pipe ({
-  name: "health",
+  name: 'calories',
   pure: false
 })
 
-export class CategoriesPipe implements PipeTransform {
+export class CaloriesPipe implements PipeTransform {
+
   transform(input: Food[], filteredList) {
     var output: Food[] = [];
-    if(filteredList === 'highCalMeal') {
+    if(filteredList === "lowCalFood") {
     for (var i = 0; i < input.length; i++) {
-      if (input[i].lowCal === false) {
+      if (input[i].calories <= 500) {
         output.push(input[i]);
       }
     }
     return output;
-  } else if (filteredList === 'lowCalMeal') {
+  } else if (filteredList === "highCalFood") {
     for (var i = 0; i <input.length; i++) {
-      if (input[i].lowCal === true) {
+      if (input[i].calories >= 500) {
         output.push(input[i]);
       }
     }
     return output;
   } else {
-    return input;
+    for (var i = 0; i < input.length; i++) {
+      output.push(input[i]);
+    }
+    return output;
   }
 }
 
