@@ -1,0 +1,15 @@
+.jumbotron {
+  background-color: #32D6D9;
+  text-align: center;
+}
+
+.new-food {
+  margin-left: 50%;
+  margin-top: -70px;
+  position: fixed;
+}
+
+.food {
+  flat: left;
+  max-width: 50%;
+}

@@ -5,11 +5,11 @@ import { Food } from './food.model';
   selector: 'app-root',
   template: `
   <div class='container'>
+    <div class="jumbotron">
     <h1>Meal Tracker</h1>
+    </div>
     <food-list [childFoodList]="masterFoodList" (editSender)="editFood($event)"></food-list>
-    <hr>
     <edit-food [childSelectedFood]="selectedFood" (doneEditingSender)="doneEditing()"></edit-food>
-    <hr>
     <new-food (newFoodSender)="addFood($event)"></new-food>
   </div>
   `
