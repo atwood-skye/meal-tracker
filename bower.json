@@ -3,7 +3,7 @@
   "description": "",
   "main": "",
   "authors": [
-    "ryan <ryanpback@gmail.com>"
+    "Skye Atwood"
   ],
   "license": "ISC",
   "homepage": "",
@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "^0.97.8",
     "bootstrap": "^3.3.7"
   }
 }

@@ -10,9 +10,12 @@ import { Food } from './food.model';
       <option value="highCalFood" selected="selected">High Calorie Meals(over 500)</option>
       <option value="lowCalFood">Low Calorie Meals(under 500)</option>
     </select>
-      <li *ngFor="let currentFood of childFoodList | calories:filterByCalories"><h2>{{currentFood.item}}</h2><br>
-      <h3>Calories:   {{currentFood.calories}}</h3><br> <h4>Notes: {{currentFood.notes}}</h4><br>
-      <button (click)="editClicked(currentFood)">Edit</button></li>
+      <li *ngFor="let currentFood of childFoodList | calories:filterByCalories">
+      <h2>{{currentFood.item}}</h2><br>
+      <h3>Calories:   {{currentFood.calories}}</h3><br>
+      <h4>Notes: {{currentFood.notes}}</h4><br>
+      <button (click)="editClicked(currentFood)">Edit</button>
+      </li>
     </ul>
   `
 })
@@ -26,7 +29,7 @@ export class FoodListComponent {
   editClicked(food: Food) {
     this.editSender.emit(food);
   }
-  
+
   onChange(optionSelected) {
     this.filterByCalories = optionSelected;
   }
